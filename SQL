@@ -1,0 +1,52 @@
+CREATE DATABASE powersolution;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> USE powersolution;
+Database changed
+mysql> 
+mysql> CREATE TABLE upscustomer( company_name varchar(225),
+    -> ups_rating varchar(225),
+    -> Quantity INT);
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> ALTER TABLE upscustomer
+    -> ADD address varchar(225);
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE upscustomer
+    -> ADD email varchar(225);
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE upscustomer 
+    -> DROP COLUMN email;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE purpose AS
+    -> SELECT company_name
+    -> FROM upscustomer
+    -> ;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE purpose
+    -> ADD Purpose varchar(225);
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>  CREATE TABLE spcustomer(name_of_material varchar(225),
+    -> c_name varchar(225),
+    -> address varchar(225));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE TABLE staff AS
+    -> SELECT name_of_material
+    -> FROM spcustomer
+    -> ;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE staff 
+    -> ADD Handover varchar(225);
