@@ -1,0 +1,57 @@
+SHOW databases;
+
+mysql> USE powersolution;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SELECT * FROM upscustomer
+    -> ;
+Empty set (0.01 sec)
+
+mysql> SHOW COLUMNS FROM spcustomer;
++------------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++------------------+--------------+------+-----+---------+-------+
+| name_of_material | varchar(225) | YES  |     | NULL    |       |
+| c_name           | varchar(225) | YES  |     | NULL    |       |
+| address          | varchar(225) | YES  |     | NULL    |       |
++------------------+--------------+------+-----+---------+-------+
+3 rows in set (0.15 sec)
+
+mysql> INSERT INTO spcustomer(name_of_material,c_name,address)
+    -> VALUES('4"Fan 5nos','Philips India Ltd','sec-57 Noida');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO spcustomer(name_of_material,c_name,address)
+    -> VALUES('4"Fan 5nos','Philips India Ltd','sec-57')
+[1]+  Stopped                 mysql -u DBMS -p
+
+
+mysql> USE powersolution;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+mysql> INSERT INTO spcustomer(name_of_material,c_name,address)
+    -> VALUES
+    -> ('Interface Card','Ienergizer','sec-60 Noida'),
+    -> ('Battery Breaker','Godrej','Roorkee'),
+    -> ('Fuse 63Amp','River Engineering','Greater Noida');
+Query OK, 3 rows affected (0.02 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE spcustomer
+    -> SET name_of_material='Interface Card Control Card Display Board'
+    -> WHERE c_name='Ienergizer';
+Query OK, 1 row affected (0.02 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> INSERT INTO spcustomer(name_of_material,c_name,address)
+    -> VALUES
+    -> ('random','random','random');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> DELETE FROM spcustomer WHERE c_name='random';
+Query OK, 1 row affected (0.02 sec)
